@@ -9,6 +9,8 @@
   --card-set-gap: 30px;
   --hero-background-color: #2f303a;
   --icons-color: #afb1b8;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 250ms;
 }
 body {
   background: var(--primary-background-color);
@@ -121,11 +123,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
-/* .contacts-nav .link.current {
-  color: var(--title-text-color);
-} */
 .contacts-nav .link:hover,
 .contacts-nav .link:focus {
   color: var(--accent-color);
@@ -143,6 +146,10 @@ p {
 
 .site-nav .link {
   position: relative;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .site-nav .link.current {
   color: var(--accent-color);
@@ -227,6 +234,10 @@ p {
   background-color: var(--accent-color);
   color: var(--white-text-color);
   cursor: pointer;
+
+  transition-property: background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .button-hero:focus,
 .button-hero:hover {
@@ -318,30 +329,20 @@ p {
 }
 .item-work {
   position: relative;
+  overflow: hidden;
 }
-.item-work-thumb::before {
-  content: '';
+.thumb-work-text {
   position: absolute;
-  bottom: 3px;
+  bottom: 2px;
   left: 0;
   width: 100%;
-  height: 25%;
-
+  height: 70px;
   background-color: rgba(47, 48, 58, 0.8);
   opacity: 1;
-}
 
-.thumb-work-text {
-  /* display: flex; */
-  position: absolute;
-  bottom: 25%;
-  left: 0;
-  width: 100%;
-  height: 25%;
-
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 83px 27px;
 
   color: var(--white-text-color);
   font-weight: 700;
@@ -349,6 +350,15 @@ p {
   line-height: calc(16 / 14);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
+  transition-property: transform;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+  transition-delay: 250ms;
+}
+.thumb-work-text:hover,
+.thumb-work-text:focus {
+  transform: translateX(-100%);
 }
 
 /*------------------------------- Our team------------------------ */
@@ -419,6 +429,10 @@ p {
   background-color: var(--primary-background-color);
   border-radius: 50%;
   color: var(--icons-color);
+
+  transition-property: background-color, color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .team-soc-link:hover,
 .team-soc-link:focus {
@@ -429,10 +443,6 @@ p {
 .team-soc-icon {
   fill: currentColor;
 }
-/* .team-soc-link:hover .team-soc-icon,
-.team-soc-link:focus .team-soc-icon {
-  fill: var(--white-text-color);
-} */
 
 /*------------------------------Regular Customers----------------------*/
 
@@ -456,6 +466,10 @@ p {
   color: var(--icons-color);
   border: 1px solid var(--icons-color);
   border-radius: 4px;
+
+  transition-property: border-color, color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .item-customers-link:hover,
 .item-customers-link:focus {
@@ -469,8 +483,8 @@ p {
 .company-icon:focus {
   fill: var(--accent-color);
 }
-/*------------------------- Main portfolio.html----------------*/
-/*-----------list buttons----------------------------*/
+/*------------------------------------- Main portfolio.html----------------*/
+/*---------------------list buttons----------------------------*/
 .bottons-list {
   display: flex;
   justify-content: center;
@@ -494,6 +508,10 @@ p {
   letter-spacing: 0.03em;
   background-color: var(--filter-background-color);
   cursor: pointer;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .filter:focus,
 .filter:hover {
@@ -502,7 +520,7 @@ p {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
-/* -------------------------list pictures GALLERY---------------*/
+/* ---------------------------------list pictures GALLERY---------------*/
 .portfolio {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -529,7 +547,8 @@ p {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.item-card:hover .card-thumb-text {
+.item-card:hover .card-thumb-text,
+.item-card:focus .card-thumb-text {
   transform: translateY(0);
 }
 .card-thumb {
@@ -538,7 +557,7 @@ p {
 }
 
 .card-thumb-text {
-  /* display: flex; */
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
@@ -552,6 +571,9 @@ p {
   letter-spacing: 0.03em;
 
   transform: translateY(100%);
+  transition-property: transform, box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .data-gallery {
@@ -574,7 +596,7 @@ p {
   line-height: 1.88;
   color: var(--text-color);
 }
-/*------------------ Footer for Studio and Portfolio---------------*/
+/*---------------------------------------- Footer for Studio and Portfolio---------------*/
 .footer {
   background-color: var(--hero-background-color);
   padding-top: 60px;
@@ -615,10 +637,18 @@ p {
 }
 .link-address {
   color: var(--white-text-color);
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 .link-tel,
 .link-mail {
   color: rgba(255, 255, 255, 0.6);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
 }
 .address .link:hover,
 .address .link:focus,
@@ -671,9 +701,14 @@ p {
   justify-content: center;
   width: 100%;
   height: 100%;
+
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: var(--white-text-color);
+
+  transition-property: background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .join-soc-link:hover,
@@ -688,11 +723,20 @@ p {
 
 /* -------------------------------------------------------MODAL WINDOW------------------------------- */
 .backdrop {
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
 }
 .modal {
   position: absolute;
@@ -706,8 +750,21 @@ p {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+
+  transition-property: transform, opacity;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
+
 .modal-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
   background-color: #ffffff;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
