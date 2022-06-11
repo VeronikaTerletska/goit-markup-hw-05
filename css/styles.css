@@ -267,6 +267,7 @@ p {
 .item-specifics::before {
   content: '';
   height: 120px;
+
   display: block;
   background-color: #f5f4fa;
   border-radius: 4px;
